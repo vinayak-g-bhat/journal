@@ -18,12 +18,11 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Journal
+title: Journal V
 email: vinayak.g.blr@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Vinayak's Technical Journal. 
-  Mostly around Software Systems Engineering and AI Infrastructuire. 
-  Exploring the limits of constrained hardware. 
+            Notes on topics in computer science, software systems engineering and AI infrastructuire.
+
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -31,7 +30,7 @@ github_username:  vinayak-g-bhat
 
 # Build settings
 
-theme: jekyll-theme-dinky
+theme: minima
 plugins:
   - jekyll-feed
 
