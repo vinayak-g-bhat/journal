@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-06-19T20:01:01+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Journal V</title><subtitle>Notes on topics in computer science, software systems engineering and AI infrastructuire.</subtitle><entry><title type="html">What’s the compute infrastructure that runs AI?</title><link href="http://localhost:4000/ai/infrastructure/2026/06/19/AI-infrastructure-learning-path.html" rel="alternate" type="text/html" title="What’s the compute infrastructure that runs AI?" /><published>2026-06-19T17:10:00+05:30</published><updated>2026-06-19T17:10:00+05:30</updated><id>http://localhost:4000/ai/infrastructure/2026/06/19/AI-infrastructure-learning-path</id><content type="html" xml:base="http://localhost:4000/ai/infrastructure/2026/06/19/AI-infrastructure-learning-path.html"><![CDATA[<p>I don’t know. Yet. So, I want to explore a bit on infrastructure and software systems for machine learning and AI. I have been doing some reading and experiments. Based on that here is the rough map of things I want to do and the objectives.</p>
+
+<p>Before GPT3.5 days, I had completed a course on <a href="https://coursera.org/share/b4dec70584a6e7c5d53f5a9fad203b43">Natural Language Processing</a>
+To refresh and catch-up I have started with Andrej Karpahty’s Let’s build GPT and Let’s reproduce GPT-2 completion. 
+I may do a couple of more in that learning thread, likely not around LLMs but Vision-Language-Action(VLA) models.
+My intention is to just get a engineer’s hang of coding such ideas to working programs. Learn frameworks like PyTorch along the way.
+I do not want to delve too much on the research side of machine learning and artificial intelligence. Focus is on the software systems that run them.</p>
+
+<p>Parallely or post the above activity, start with a mini-project to serve a LLM using vLLM. First try to run on my local desktop with NVidia GPU - RTX 3080. 
+Learn how constrained hardware is. Do some optimizations and adjustments to run a model. 
+Goal is to learn as much as possible around GPU execution, memory management, concurrency, compiler optimizations etc. Understand the stack till CUDA. Understand the interaction between OS kernel and application software and drivers. Map learnings from previous experience in executing applications and libraries in constrained hardware environment like smartcards, earlier versions of Android and edge devices. Understand benchmarking tools, profiling tools and debugging tools etc.
+Post this probably will run inference on public cloud providers on whatever latest GPUs are available for rent. See how the optimization exercise looks on the cloud. Probably using TensorRT (!?)</p>
+
+<p>Few questions I want to answer along the way:</p>
+<ul>
+  <li>How is GPU computing parallellized? Learn about DeepSpeed, Megatron, FSDP frameworks.</li>
+  <li>What is the memory pipeline look like, from storage to GPU memory, in training and inference.</li>
+  <li>What is the networking like at scale?</li>
+  <li>How are concurrent user requests managed? How does scaling compare to traditional cloud computing?</li>
+  <li>What’s evolving fastest in this space, in tools and techniques?</li>
+  <li>How are secrets handled around LLMs? What does the traditional software perimeter around ML models look like?</li>
+</ul>
+
+<p>It has been a month or so of mucking around in this area. The above is the map I have prepared based on that. If you work in this space, feedback on my learning path is welcome. I want to find out if I am wrong, now!</p>
+
+<p>I have a full-time job as principal engineer. So I haven’t put a target on timelines. May take many months to a year.</p>
+
+<p>Next write up is about my learning experience from <a href="https://www.youtube.com/watch?v=kCc8FmEb1nY">Let’s Build GPT:from scratch, in code, spelled out</a>. Coding is already complete! <a href="https://github.com/vinayak-g-bhat/gpt">GPT</a></p>]]></content><author><name></name></author><category term="AI" /><category term="Infrastructure" /><summary type="html"><![CDATA[I don’t know. Yet. So, I want to explore a bit on infrastructure and software systems for machine learning and AI. I have been doing some reading and experiments. Based on that here is the rough map of things I want to do and the objectives.]]></summary></entry></feed>

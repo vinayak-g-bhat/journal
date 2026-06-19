@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>What’s the compute infrastructure that runs AI? | Journal V</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="What’s the compute infrastructure that runs AI?" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I don’t know. Yet. So, I want to explore a bit on infrastructure and software systems for machine learning and AI. I have been doing some reading and experiments. Based on that here is the rough map of things I want to do and the objectives." />
+<meta property="og:description" content="I don’t know. Yet. So, I want to explore a bit on infrastructure and software systems for machine learning and AI. I have been doing some reading and experiments. Based on that here is the rough map of things I want to do and the objectives." />
+<link rel="canonical" href="http://localhost:4000/ai/infrastructure/2026/06/19/AI-infrastructure-learning-path.html" />
+<meta property="og:url" content="http://localhost:4000/ai/infrastructure/2026/06/19/AI-infrastructure-learning-path.html" />
+<meta property="og:site_name" content="Journal V" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-06-19T17:10:00+05:30" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="What’s the compute infrastructure that runs AI?" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-06-19T17:10:00+05:30","datePublished":"2026-06-19T17:10:00+05:30","description":"I don’t know. Yet. So, I want to explore a bit on infrastructure and software systems for machine learning and AI. I have been doing some reading and experiments. Based on that here is the rough map of things I want to do and the objectives.","headline":"What’s the compute infrastructure that runs AI?","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ai/infrastructure/2026/06/19/AI-infrastructure-learning-path.html"},"url":"http://localhost:4000/ai/infrastructure/2026/06/19/AI-infrastructure-learning-path.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Journal V" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Journal V</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">What&#39;s the compute infrastructure that runs AI?</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-06-19T17:10:00+05:30" itemprop="datePublished">Jun 19, 2026
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>I don’t know. Yet. So, I want to explore a bit on infrastructure and software systems for machine learning and AI. I have been doing some reading and experiments. Based on that here is the rough map of things I want to do and the objectives.</p>
+
+<p>Before GPT3.5 days, I had completed a course on <a href="https://coursera.org/share/b4dec70584a6e7c5d53f5a9fad203b43">Natural Language Processing</a>
+To refresh and catch-up I have started with Andrej Karpahty’s Let’s build GPT and Let’s reproduce GPT-2 completion. 
+I may do a couple of more in that learning thread, likely not around LLMs but Vision-Language-Action(VLA) models.
+My intention is to just get a engineer’s hang of coding such ideas to working programs. Learn frameworks like PyTorch along the way.
+I do not want to delve too much on the research side of machine learning and artificial intelligence. Focus is on the software systems that run them.</p>
+
+<p>Parallely or post the above activity, start with a mini-project to serve a LLM using vLLM. First try to run on my local desktop with NVidia GPU - RTX 3080. 
+Learn how constrained hardware is. Do some optimizations and adjustments to run a model. 
+Goal is to learn as much as possible around GPU execution, memory management, concurrency, compiler optimizations etc. Understand the stack till CUDA. Understand the interaction between OS kernel and application software and drivers. Map learnings from previous experience in executing applications and libraries in constrained hardware environment like smartcards, earlier versions of Android and edge devices. Understand benchmarking tools, profiling tools and debugging tools etc.
+Post this probably will run inference on public cloud providers on whatever latest GPUs are available for rent. See how the optimization exercise looks on the cloud. Probably using TensorRT (!?)</p>
+
+<p>Few questions I want to answer along the way:</p>
+<ul>
+  <li>How is GPU computing parallellized? Learn about DeepSpeed, Megatron, FSDP frameworks.</li>
+  <li>What is the memory pipeline look like, from storage to GPU memory, in training and inference.</li>
+  <li>What is the networking like at scale?</li>
+  <li>How are concurrent user requests managed? How does scaling compare to traditional cloud computing?</li>
+  <li>What’s evolving fastest in this space, in tools and techniques?</li>
+  <li>How are secrets handled around LLMs? What does the traditional software perimeter around ML models look like?</li>
+</ul>
+
+<p>It has been a month or so of mucking around in this area. The above is the map I have prepared based on that. If you work in this space, feedback on my learning path is welcome. I want to find out if I am wrong, now!</p>
+
+<p>I have a full-time job as principal engineer. So I haven’t put a target on timelines. May take many months to a year.</p>
+
+<p>Next write up is about my learning experience from <a href="https://www.youtube.com/watch?v=kCc8FmEb1nY">Let’s Build GPT:from scratch, in code, spelled out</a>. Coding is already complete! <a href="https://github.com/vinayak-g-bhat/gpt">GPT</a></p>
+
+
+  </div><a class="u-url" href="/ai/infrastructure/2026/06/19/AI-infrastructure-learning-path.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Journal V</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Journal V</li><li><a class="u-email" href="mailto:vinayak.g.blr@gmail.com">vinayak.g.blr@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/vinayak-g-bhat"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">vinayak-g-bhat</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Notes on topics in computer science, software systems engineering and AI infrastructuire.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
