@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Building GPT from scratch: overview | Journal V</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Building GPT from scratch: overview" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Before going deeper into AI infrastructure, I wanted to refresh my mental model of a neural network by building a transformer from scratch." />
+<meta property="og:description" content="Before going deeper into AI infrastructure, I wanted to refresh my mental model of a neural network by building a transformer from scratch." />
+<link rel="canonical" href="http://localhost:4000/ai/infrastructure/2026/06/21/gpt-from-scratch.html" />
+<meta property="og:url" content="http://localhost:4000/ai/infrastructure/2026/06/21/gpt-from-scratch.html" />
+<meta property="og:site_name" content="Journal V" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-06-21T17:10:00+05:30" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Building GPT from scratch: overview" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-06-21T17:10:00+05:30","datePublished":"2026-06-21T17:10:00+05:30","description":"Before going deeper into AI infrastructure, I wanted to refresh my mental model of a neural network by building a transformer from scratch.","headline":"Building GPT from scratch: overview","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ai/infrastructure/2026/06/21/gpt-from-scratch.html"},"url":"http://localhost:4000/ai/infrastructure/2026/06/21/gpt-from-scratch.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Journal V" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Journal V</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Building GPT from scratch: overview</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-06-21T17:10:00+05:30" itemprop="datePublished">Jun 21, 2026
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Before going deeper into AI infrastructure, I wanted to refresh my mental model of a neural network by building a transformer from scratch.</p>
+
+<p>The video by Andrej Karpathy <a href="https://www.youtube.com/watch?v=kCc8FmEb1nY">Let’s Build GPT: from scratch, in code, spelled out</a> is what I worked through. My implementation: <a href="https://github.com/vinayak-g-bhat/gpt">github.com/vinayak-g-bhat/gpt</a>.
+The video implements paper on which GPT and many modern LLMs are based: <a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a>.</p>
+
+<h2 id="program-structure">Program structure</h2>
+<ul>
+  <li>Download the corpus <a href="https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt">TinyShakespeare</a></li>
+  <li>Split the text into two parts. One for training and one for evaluation.</li>
+  <li>Implement tokenization routines: build vocabulary, encode and decode methods</li>
+  <li>Implement method for  getting a batch of data, either for training or evaluation.</li>
+  <li>Choose a block size, and reason about what it means semantically</li>
+  <li>Build deep learning layers, most importantly self-attention.</li>
+  <li>Add other layers like residual layer, normalization layers and dropouts.</li>
+  <li>Training loop and evaluting loss.</li>
+  <li>Generate tokens from prompt.</li>
+</ul>
+
+<h2 id="side-quests">Side-quests</h2>
+<ul>
+  <li>Tensor memory management in PyTorch, including strides.</li>
+  <li>How Pytorch autograd works under the hood.</li>
+  <li>Measuring memory consumed during the training and evaluation.</li>
+  <li>Comparing MPS (MacBook GPU) runs and CPU runs against Karpathy’s reported numbers.</li>
+  <li>Loss comparison between Karpathy’s runs and mine on a local Macbook.</li>
+  <li>The math behind loss functions.</li>
+</ul>
+
+<h2 id="whats-next">What’s next</h2>
+<p>This post is the summary I want to be able to come back to. Each of the side-quests above is more interesting than the high-level walkthrough, so I’ll write each up as its own post over the coming days.</p>
+
+  </div><a class="u-url" href="/ai/infrastructure/2026/06/21/gpt-from-scratch.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Journal V</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Journal V</li><li><a class="u-email" href="mailto:vinayak.g.blr@gmail.com">vinayak.g.blr@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/vinayak-g-bhat"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">vinayak-g-bhat</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Notes on topics in computer science, software systems engineering and AI infrastructuire.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

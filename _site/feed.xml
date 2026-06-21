@@ -1,4 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-06-19T21:05:57+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Journal V</title><subtitle>Notes on topics in computer science, software systems engineering and AI infrastructuire.</subtitle><entry><title type="html">What’s the compute infrastructure that runs AI?</title><link href="http://localhost:4000/ai/infrastructure/2026/06/19/whats-AI-infrastructure.html" rel="alternate" type="text/html" title="What’s the compute infrastructure that runs AI?" /><published>2026-06-19T17:10:00+05:30</published><updated>2026-06-19T17:10:00+05:30</updated><id>http://localhost:4000/ai/infrastructure/2026/06/19/whats-AI-infrastructure</id><content type="html" xml:base="http://localhost:4000/ai/infrastructure/2026/06/19/whats-AI-infrastructure.html"><![CDATA[<p>I don’t know. Yet. So, I want to explore a bit on infrastructure and software systems for machine learning and AI. I have been doing some reading and experiments. Based on that here is the rough map of things I want to do and the objectives.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-06-21T17:33:50+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Journal V</title><subtitle>Notes on topics in computer science, software systems engineering and AI infrastructuire.</subtitle><entry><title type="html">Building GPT from scratch: overview</title><link href="http://localhost:4000/ai/infrastructure/2026/06/21/gpt-from-scratch.html" rel="alternate" type="text/html" title="Building GPT from scratch: overview" /><published>2026-06-21T17:10:00+05:30</published><updated>2026-06-21T17:10:00+05:30</updated><id>http://localhost:4000/ai/infrastructure/2026/06/21/gpt-from-scratch</id><content type="html" xml:base="http://localhost:4000/ai/infrastructure/2026/06/21/gpt-from-scratch.html"><![CDATA[<p>Before going deeper into AI infrastructure, I wanted to refresh my mental model of a neural network by building a transformer from scratch.</p>
+
+<p>The video by Andrej Karpathy <a href="https://www.youtube.com/watch?v=kCc8FmEb1nY">Let’s Build GPT: from scratch, in code, spelled out</a> is what I worked through. My implementation: <a href="https://github.com/vinayak-g-bhat/gpt">github.com/vinayak-g-bhat/gpt</a>.
+The video implements paper on which GPT and many modern LLMs are based: <a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a>.</p>
+
+<h2 id="program-structure">Program structure</h2>
+<ul>
+  <li>Download the corpus <a href="https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt">TinyShakespeare</a></li>
+  <li>Split the text into two parts. One for training and one for evaluation.</li>
+  <li>Implement tokenization routines: build vocabulary, encode and decode methods</li>
+  <li>Implement method for  getting a batch of data, either for training or evaluation.</li>
+  <li>Choose a block size, and reason about what it means semantically</li>
+  <li>Build deep learning layers, most importantly self-attention.</li>
+  <li>Add other layers like residual layer, normalization layers and dropouts.</li>
+  <li>Training loop and evaluting loss.</li>
+  <li>Generate tokens from prompt.</li>
+</ul>
+
+<h2 id="side-quests">Side-quests</h2>
+<ul>
+  <li>Tensor memory management in PyTorch, including strides.</li>
+  <li>How Pytorch autograd works under the hood.</li>
+  <li>Measuring memory consumed during the training and evaluation.</li>
+  <li>Comparing MPS (MacBook GPU) runs and CPU runs against Karpathy’s reported numbers.</li>
+  <li>Loss comparison between Karpathy’s runs and mine on a local Macbook.</li>
+  <li>The math behind loss functions.</li>
+</ul>
+
+<h2 id="whats-next">What’s next</h2>
+<p>This post is the summary I want to be able to come back to. Each of the side-quests above is more interesting than the high-level walkthrough, so I’ll write each up as its own post over the coming days.</p>]]></content><author><name></name></author><category term="AI" /><category term="Infrastructure" /><summary type="html"><![CDATA[Before going deeper into AI infrastructure, I wanted to refresh my mental model of a neural network by building a transformer from scratch.]]></summary></entry><entry><title type="html">What’s the compute infrastructure that runs AI?</title><link href="http://localhost:4000/ai/infrastructure/2026/06/19/whats-AI-infrastructure.html" rel="alternate" type="text/html" title="What’s the compute infrastructure that runs AI?" /><published>2026-06-19T17:10:00+05:30</published><updated>2026-06-19T17:10:00+05:30</updated><id>http://localhost:4000/ai/infrastructure/2026/06/19/whats-AI-infrastructure</id><content type="html" xml:base="http://localhost:4000/ai/infrastructure/2026/06/19/whats-AI-infrastructure.html"><![CDATA[<p>I don’t know. Yet. So, I want to explore a bit on infrastructure and software systems for machine learning and AI. I have been doing some reading and experiments. Based on that here is the rough map of things I want to do and the objectives.</p>
 
 <p>Before GPT3.5 days, I had completed a course on <a href="https://coursera.org/share/b4dec70584a6e7c5d53f5a9fad203b43">Natural Language Processing</a>
 To refresh and catch-up I have started with Andrej Karpahty’s Let’s build GPT and Let’s reproduce GPT-2 completion. 
